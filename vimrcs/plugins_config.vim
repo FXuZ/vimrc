@@ -16,6 +16,7 @@ Plug('preservim/nerdtree')
 Plug('jlanzarotta/bufexplorer')
 Plug('junegunn/goyo.vim')
 Plug('amix/vim-zenroom2')
+Plug('shemerey/vim-peepopen')
 " input enhancement
 Plug('jiangmiao/auto-pairs')
 Plug('kien/ctrlp.vim')
