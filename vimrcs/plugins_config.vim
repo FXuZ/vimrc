@@ -9,10 +9,49 @@
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
-call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
-call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
-call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
-call pathogen#helptags()
+call plug#begin(s:vim_runtime.'/sources_non_forked')
+" utils
+Plug('mileszs/ack.vim')
+Plug('preservim/nerdtree')
+Plug('jlanzarotta/bufexplorer')
+" input enhancement
+Plug('jiangmiao/auto-pairs')
+Plug('kien/ctrlp.vim')
+Plug('junegunn/goyo.vim')
+Plug('godlygeek/tabular')
+Plug('tpope/vim-commentary')
+Plug('mg979/vim-visual-multi')
+Plug('tpope/vim-repeat')
+Plug('tpope/vim-surround')
+Plug('maxbrunsfeld/vim-yankstack')
+" linter
+Plug('dense-analysis/ale')
+" git
+Plug('airblade/vim-gitgutter')
+Plug('tpope/vim-fugitive')
+" color schemes
+Plug('morhetz/gruvbox')
+Plug('vim-scripts/mayansmoke')
+Plug('vim-scripts/peaksea')
+Plug('jnurmine/Zenburn')
+Plug('altercation/vim-colors-solarized')
+Plug('vim-scripts/pyte')
+" yet another powerline
+Plug('itchyny/lightline.vim')
+Plug('maximbaz/lightline-ale')
+" language plugins
+Plug('rust-lang/rust.vim')
+Plug('plasticboy/vim-markdown')
+Plug('Vimjas/vim-python-pep8-indent')
+" snippets
+" Here only snippet defs are included. Choose your own snippet manager
+Plug('honza/vim-snippets')
+call plug#end()
+
+" call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
+" call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
+" call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
+" call pathogen#helptags()
 
 
 """"""""""""""""""""""""""""""
