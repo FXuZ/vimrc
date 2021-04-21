@@ -9,45 +9,91 @@
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
-call plug#begin(s:vim_runtime.'/sources_non_forked')
+call plug#begin(s:vim_runtime.'/my_plugins/plugged')
 " utils
-Plug('mileszs/ack.vim')
-Plug('preservim/nerdtree')
-Plug('jlanzarotta/bufexplorer')
-Plug('junegunn/goyo.vim')
-Plug('amix/vim-zenroom2')
-Plug('shemerey/vim-peepopen')
+Plug 'mileszs/ack.vim'
+Plug 'preservim/nerdtree'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
+Plug 'shemerey/vim-peepopen'
 " input enhancement
-Plug('jiangmiao/auto-pairs')
-Plug('kien/ctrlp.vim')
-Plug('godlygeek/tabular')
-Plug('tpope/vim-commentary')
-Plug('mg979/vim-visual-multi')
-Plug('tpope/vim-repeat')
-Plug('tpope/vim-surround')
-Plug('maxbrunsfeld/vim-yankstack')
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-commentary'
+Plug 'mg979/vim-visual-multi'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'michaeljsmith/vim-indent-object'
 " linter
-Plug('dense-analysis/ale')
+Plug 'dense-analysis/ale'
 " git
-Plug('airblade/vim-gitgutter')
-Plug('tpope/vim-fugitive')
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " color schemes
-Plug('morhetz/gruvbox')
-Plug('vim-scripts/mayansmoke')
-Plug('vim-scripts/peaksea')
-Plug('jnurmine/Zenburn')
-Plug('altercation/vim-colors-solarized')
-Plug('vim-scripts/pyte')
+Plug 'morhetz/gruvbox'
+Plug 'vim-scripts/mayansmoke'
+Plug 'vim-scripts/peaksea'
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/pyte'
 " yet another powerline
-Plug('itchyny/lightline.vim')
-Plug('maximbaz/lightline-ale')
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 " language plugins
-Plug('rust-lang/rust.vim')
-Plug('plasticboy/vim-markdown')
-Plug('Vimjas/vim-python-pep8-indent')
+Plug 'rust-lang/rust.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'Vimjas/vim-python-pep8-indent'
 " snippets
 " Here only snippet defs are included. Choose your own snippet manager
-Plug('honza/vim-snippets')
+Plug 'honza/vim-snippets'
+""""""""""""""""""""""""""""""""""""""
+" Custom plugins
+""""""""""""""""""""""""""""""""""""""
+
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+      !./install.py
+  endif
+endfunction
+
+Plug 'ervandew/supertab'
+" Plug 'ycm-core/YouCompleteMe', {'do': function('BuildYCM')}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'autozimu/LanguageClient-neovim', {
+"       \ 'branch': 'next',
+"       \ 'do': 'bash install.sh',
+"       \ }
+Plug 'junegunn/fzf'
+Plug 'scrooloose/nerdcommenter'
+Plug 'lervag/vimtex'
+Plug 'matze/vim-lilypond'
+Plug 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
+Plug 'KabbAmine/zeavim.vim'
+Plug 'keith/investigate.vim'
+Plug 'ap/vim-css-color'
+Plug 'vimwiki/vimwiki'
+Plug 'vifm/vifm.vim'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'tbabej/taskwiki'
+Plug 'sirver/ultisnips'
+Plug 'mhinz/vim-startify'
+Plug 'jamessan/vim-gnupg'
+" Plug 'd0c-s4vage/vim-morph'
+Plug 'ncm2/ncm2'
+Plug 'dcbaker/vim-abook'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-ultisnips'
+
+" Plug('glts/vim-radical')
 call plug#end()
 
 " call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
