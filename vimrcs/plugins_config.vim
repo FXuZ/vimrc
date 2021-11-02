@@ -72,11 +72,13 @@ Plug 'vimwiki/vimwiki'
 Plug 'vifm/vifm.vim'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'tbabej/taskwiki'
-Plug 'sirver/ultisnips'
+" Plug 'sirver/ultisnips'
 Plug 'mhinz/vim-startify'
 Plug 'jamessan/vim-gnupg'
 " ctags management
 Plug 'ludovicchabant/vim-gutentags'
+" ime support
+Plug 'rlue/vim-barbaric'
 " Plug 'd0c-s4vage/vim-morph'
 " Plug 'ncm2/ncm2'
 " Plug 'dcbaker/vim-abook'
@@ -93,6 +95,9 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'ElPiloto/telescope-vimwiki.nvim'
 
 call plug#end()
 
