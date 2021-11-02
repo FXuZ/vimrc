@@ -6,7 +6,7 @@
 
 
 """"""""""""""""""""""""""""""
-" => Load pathogen paths
+" => Load vim-plug paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
 call plug#begin(s:vim_runtime.'/my_plugins/plugged')
@@ -16,7 +16,6 @@ Plug 'preservim/nerdtree'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
-Plug 'shemerey/vim-peepopen'
 " input enhancement
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
@@ -25,7 +24,9 @@ Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'maxbrunsfeld/vim-yankstack'
+" github fugitive plugin
+Plug 'tpope/vim-rhubarb'
+" Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'michaeljsmith/vim-indent-object'
 " linter
 Plug 'dense-analysis/ale'
@@ -52,17 +53,6 @@ Plug 'honza/vim-snippets'
 """"""""""""""""""""""""""""""""""""""
 " Custom plugins
 """"""""""""""""""""""""""""""""""""""
-
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-      !./install.py
-  endif
-endfunction
-
 Plug 'ervandew/supertab'
 " Plug 'ycm-core/YouCompleteMe', {'do': function('BuildYCM')}
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -70,7 +60,7 @@ Plug 'ervandew/supertab'
 "       \ 'branch': 'next',
 "       \ 'do': 'bash install.sh',
 "       \ }
-Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'matze/vim-lilypond'
@@ -85,15 +75,25 @@ Plug 'tbabej/taskwiki'
 Plug 'sirver/ultisnips'
 Plug 'mhinz/vim-startify'
 Plug 'jamessan/vim-gnupg'
+" ctags management
+Plug 'ludovicchabant/vim-gutentags'
 " Plug 'd0c-s4vage/vim-morph'
-Plug 'ncm2/ncm2'
-Plug 'dcbaker/vim-abook'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2'
+" Plug 'dcbaker/vim-abook'
+" Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-ultisnips'
 
-" Plug('glts/vim-radical')
+" neovim 0.5 lua plugins
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
 call plug#end()
 
 " call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
@@ -115,8 +115,8 @@ map <leader>o :BufExplorer<cr>
 """"""""""""""""""""""""""""""
 " => MRU plugin
 """"""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
+let g:ctrlp_mruf_max = 400
+map <leader>f :CtrlPMRU<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -135,7 +135,6 @@ let g:ctrlp_working_path_mode = 0
 
 " Quickly find and open a file in the current working directory
 let g:ctrlp_map = '<C-f>'
-map <leader>j :CtrlP<cr>
 
 " Quickly find and open a buffer
 map <leader>b :CtrlPBuffer<cr>
@@ -196,7 +195,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => surround.vim config
-" Annotate strings with gettext 
+" Annotate strings with gettext
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap Si S(i_<esc>f)
 au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
