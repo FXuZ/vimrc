@@ -24,6 +24,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 " github fugitive plugin
 Plug 'tpope/vim-rhubarb'
 " Plug 'maxbrunsfeld/vim-yankstack'
@@ -79,6 +80,8 @@ Plug 'jamessan/vim-gnupg'
 Plug 'ludovicchabant/vim-gutentags'
 " ime support
 Plug 'rlue/vim-barbaric'
+" debugger
+Plug 'puremourning/vimspector'
 " Plug 'd0c-s4vage/vim-morph'
 " Plug 'ncm2/ncm2'
 " Plug 'dcbaker/vim-abook'
@@ -98,6 +101,10 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ElPiloto/telescope-vimwiki.nvim'
+Plug 'nvim-orgmode/orgmode'
+Plug 'rlane/pounce.nvim'
+Plug 'sidebar-nvim/sidebar.nvim'
+" Plug 'oberblastmeister/neuron.nvim'
 
 call plug#end()
 
